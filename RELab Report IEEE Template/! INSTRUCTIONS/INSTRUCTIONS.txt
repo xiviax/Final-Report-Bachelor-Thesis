@@ -1,0 +1,9 @@
+How to create a RELab report based on the IEEE template: 
+========================================================
+
+1) Update your project description, declaration of originality and pictures in the folder 'Preamble'.
+2) Open 'Preamble.tex' in the folder 'Preamble'. Update your information, project picture and portrait picture.
+3) Build 'Preamble.pdf'.
+4) In the main template folder, open 'My Report.tex'. Update title and author information.
+5) Add content of your report and to the appendix 'Appendix.tex'.
+6) Build 'My Report.pdf'.

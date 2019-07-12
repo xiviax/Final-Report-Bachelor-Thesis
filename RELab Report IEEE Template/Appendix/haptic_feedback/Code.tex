@@ -1,0 +1,108 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset { %
+    language=C++,
+    backgroundcolor=\color{black!5}, % set backgroundcolor
+    basicstyle=\footnotesize,% basic font setting
+}
+
+\begin{document}
+This Code was used in order to read out the data via the Serial Monitor of Arduino IDE: \dots
+\begin{lstlisting}
+char *pressure_cells[] = { "Heel R:", "Heel L:", "Arch:", "Met 1:", 
+"Met 3:", "Met 5:", "Hallux:", "Toes:"};
+
+//static const uint8_t pins[] = {36,39,34,35,32,33,25,26}; 
+//The Pins for the ESP 32
+static const uint8_t pins[] = {0,1,2,3,4,5,6,7}; 
+//The Pins for the Arduino Nano
+
+#define LED_pin 6 //To test an LED-Feedback can be attached at Pin6 
+
+
+#define Trigger_Point_Voltage_ON 0.2 
+// This number has to be exceeded to trigger a feedback
+#define Trigger_Point_Voltage_OFF 0.1 
+// Measurement has to be below for a new feedback to be given
+
+
+bool sense1_triggered=false;
+float voltage_of_sensors[]={0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+
+// the setup routine runs once when you press reset:
+
+void setup() {
+  // initialize serial communication at 115200 bits per second:
+  Serial.begin(115200);
+
+  pinMode(LED_pin, OUTPUT);
+  
+  Serial.println("Heel L;Heel R;Arch;Met 1;Met 3;Met 5;Hallux;Toes;"); 
+  // for the excel sheet afterwards
+
+}
+// the loop routine runs over and over again forever:
+void loop() {
+  
+  // Read out analog pins
+  for (int i=0; i<8; i++)
+  {
+    // read the input on analog pin i:
+    
+    int sensorValue = analogRead(pins[i]);
+    
+    /* Convert the analog reading (which goes from 0 - 1023) to a 
+    voltage (0 - 5V) for Arduino Nano */
+    
+    // Input should be from 0-1.4 V = 0 - 6000 mbar
+
+    // float voltage = sensorValue * 5.0 / 1023.0 /  1.4 * 6000.0; 
+    // To get the corresponding pressure
+   
+    voltage_of_sensors[i] = (sensorValue * 5.0 / 1023.0);
+
+    Serial.print(voltage_of_sensors[i]);
+    Serial.print(";");
+    
+    delay(10);
+ 
+    /*if(voltage_of_sensors[i]>Trigger_Point_Voltage_ON && 
+    sense1_triggered==false){
+      digitalWrite(LED_pin, HIGH);
+      delay(100);
+      digitalWrite(LED_pin, LOW);
+      sense1_triggered=true;
+      }
+    else if(voltage_of_sensors[i]<Trigger_Point_Voltage_OFF){
+      
+            sense1_triggered=false;
+            
+    }
+    else{ //todo
+      }*/ // If the LED wants to be tested.
+  } 
+ Serial.println("");
+
+}
+\end{lstlisting}
+
+Crutch Code:
+
+\begin{lstlisting}
+
+\end{lstlisting}
+
+Footsensor Code:
+
+\begin{lstlisting}
+
+\end{lstlisting}
+
+Launch File:
+
+\begin{lstlisting}
+
+\end{lstlisting}
+
+\end{document}

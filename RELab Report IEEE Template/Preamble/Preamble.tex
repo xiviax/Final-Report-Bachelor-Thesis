@@ -1,0 +1,112 @@
+%=================================================================
+% RELab LaTeX template - this template is based on the IMRT and ASL LaTeX template
+%=================================================================
+
+\documentclass[10pt,twoside,a4paper]{report}
+
+
+\usepackage{ETH_RELab}   						% New styles and commands
+
+% \includeonly{}                      			% Quick formatting
+% \usepackage[draft]{graphicx}        			% Quick formatting
+
+\usepackage{a4}                      			% Paper size
+\usepackage[latin1]{inputenc}       			% Keybord settings
+\usepackage{amsmath}                 			% Additional math functionality
+\usepackage{amssymb}                	 		% Additional math functionality
+\usepackage{float}                   			% Placement of floating objects
+%\usepackage{fancyhdr}                			% Headings
+%\usepackage{rotating}
+\usepackage{multirow}
+%\usepackage{url}
+%\usepackage{colortbl}
+\usepackage{ifpdf}
+\usepackage[final]{pdfpages}
+\usepackage{cite}
+
+
+\usepackage{hyperref}
+\usepackage{color}
+\definecolor{black}{rgb}{0,0,0}
+\definecolor{white}{rgb}{1,1,1}
+
+\definecolor{darkred}{rgb}{0.5,0,0}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+
+%\usepackage{german}                  			% German language
+%\usepackage{ae}                      			% German specials
+
+%\usepackage{hyperref}							% generates colored links in pdf file
+%\hypersetup{
+%	bookmarks = true,
+%	colorlinks = true,       					% false: boxed links; true: colored links
+%	linkcolor = black,          				% color of internal links
+%	citecolor = black,        					% color of links to bibliography
+%	filecolor = black,      					% color of file links
+%	urlcolor = black          					% color of external links
+%}
+
+
+%---------------------------------------------------------------------------
+
+% \setlength{\parindent}{0em}                   	% Disable parindent
+% \rhead[\thepage]{\nouppercase{\rightmark}}    	% Special headings
+% \lhead[\nouppercase{\leftmark}]{\thepage}     	% Special headings
+% \cfoot{}                                      	% Special headings
+
+%---------------------------------------------------------------------------
+
+\title{User-centered Design of crutches to Control and Maneuver a Lower Limb Exoskeleton}
+ %\subtitle{bla bla bla}
+
+\timeperiod{February-July 2019}
+
+\projecttype{Bachelor-Thesis}
+% Internship Report, Bachelor-Thesis, Semester-Thesis, Master-Thesis
+
+\studentA{Ada Laura Johanna Tissari}
+\studentB{Xenia Eja Magdalena Voellmy}
+
+\supervisionA{Jan Meyer}
+%\supervisionB{Supervisor B}
+%\supervisionC{Supervisor C}
+
+\professorA{Prof. Roger Gassert}
+%\professorB{Prof. B}
+%\professorC{Prof. C}
+
+\portrait{my_portrait}
+
+
+\projectpicture{Title_Page}
+
+%===========================================================================
+\begin{document}
+
+%---------------------------------------------------------------------------
+% Title page
+
+\maketitle
+\pagestyle{plain}
+\pagenumbering{gobble}
+
+%---------------------------------------------------------------------------
+% Project Description Page
+\includepdf[pages={1,2}]{Project_Descriptions}
+
+
+
+% Declaration of Originality
+
+\cleardoublepage
+
+\includepdf[pages={1}]{Declaration_of_Originality}
+
+
+\cleardoublepage
+
+%---------------------------------------------------------------------------
+
+\end{document}
+%===========================================================================
